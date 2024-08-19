@@ -2,6 +2,7 @@ package com.educandoweb.course.config;
 
 import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.entities.User;
+import com.educandoweb.course.entities.enums.OrderStatus;
 import com.educandoweb.course.repositories.OrderRepository;
 import com.educandoweb.course.repositories.UserRepository;
 
@@ -28,9 +29,9 @@ public class TestConfig implements CommandLineRunner {
         User u1 = new User(null, "Maria Brown", "maria@gmail.com", "98888888", "123456");
         User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
-        Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), u1);
-        Order o2 = new Order(null, Instant.parse("2019-07-20T03:42:10Z"), u2);
-        Order o3 = new Order(null, Instant.parse("2019-07-20T15:21:22Z"), u1);
+        Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.PAID, u1);
+        Order o2 = new Order(null, Instant.parse("2019-07-20T03:42:10Z"),OrderStatus.DELIVERED, u2);
+        Order o3 = new Order(null, Instant.parse("2019-07-20T15:21:22Z"),OrderStatus.DELIVERED, u1);
 
 
         //metodo para criar uma lista com u1 e u2 e salvar no banco de dados
